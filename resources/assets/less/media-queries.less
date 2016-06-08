@@ -1,0 +1,166 @@
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+.col-xs-5ths,
+.col-sm-5ths,
+.col-md-5ths,
+.col-lg-5ths {
+    position: relative;
+    min-height: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.col-xs-5ths {
+    width: 20%;
+    float: left;
+}
+
+.text-left-xs {
+    text-align: left;
+}
+.text-center-xs {
+    text-align: center;
+}
+.text-right-xs {
+    text-align: right;
+}
+
+header .quick-scan {
+    margin: 5px;
+}
+
+
+/* iPhone */
+@media (min-width: 375px) {
+    .text-left-sm {
+        text-align: left;
+    }
+    .text-center-sm {
+        text-align: center;
+    }
+    .text-right-sm {
+        text-align: right;
+    }
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .col-sm-5ths {
+        width: 20%;
+        float: left;
+    }
+
+    .text-left-sm {
+        text-align: left;
+    }
+    .text-center-sm {
+        text-align: center;
+    }
+    .text-right-sm {
+        text-align: right;
+    }
+
+    #mission .row .custom-position {
+        bottom: 5%;
+    }
+
+    #services {
+        .service-box {
+            &.first {
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+            }
+            &.last {
+                border-bottom-left-radius: 5px;
+                border-bottom-right-radius: 5px;
+            }
+            &.radius-top-left {
+                border-top-left-radius: 5px;
+            }
+            &.radius-top-right {
+                border-top-right-radius: 5px;
+            }
+        }
+    }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .col-md-5ths {
+        width: 20%;
+        float: left;
+    }
+
+    .text-left-md {
+        text-align: left;
+    }
+    .text-center-md {
+        text-align: center;
+    }
+    .text-right-md {
+        text-align: right;
+    }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .col-lg-5ths {
+        width: 20%;
+        float: left;
+    }
+
+    .text-left-lg {
+        text-align: left;
+    }
+    .text-center-lg {
+        text-align: center;
+    }
+    .text-right-lg {
+        text-align: right;
+    }
+}
+
+/* Custom elements */
+@media screen and (max-width: 1090px) {
+    .rwd-break-1090 {
+        display: none;
+    }
+}
+@media screen and (min-width: 1010px) {
+    .rwd-break-1010 {
+        display: none;
+    }
+}
+
+
+// maxima
+@media (max-width: 375px) {
+    section {
+        min-height: 518px;
+    }
+    #services {
+        &.bg-dark {
+            .service-box {
+                height: 6rem;
+
+                .title-long {
+                    line-height: 80px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    #services {
+        &.bg-dark {
+            .service-box {
+                border: none;
+                border-top: 2px solid @theme-primary;
+
+                &.last {
+                    border-bottom: 2px solid @theme-primary;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,684 @@
+@import "bootstrap.less";
+@import "media-queries.less";
+
+// Global Components
+html,
+body {
+    height: 100%;
+    width: 100%;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    .sans-serif-font;
+}
+
+hr {
+    border-color: @theme-primary;
+    border-width: 3px;
+    max-width: 50px;
+}
+
+hr {
+    &.light {
+        border-color: @theme-primary;
+    }
+    &.dark {
+        border-color: @theme-dark;
+    }
+}
+
+a {
+    .transition-all;
+    color: inherit;
+    &:hover,
+    &:focus {
+        color: lighten(@theme-secondary, 30%);
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    .sans-serif-font;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.display-none {
+    display: none;
+}
+
+.visibility-hidden {
+    visibility: hidden;
+}
+
+.bg-primary {
+    background-color: @theme-primary;
+    color: @theme-dark;
+}
+
+.bg-secondary {
+    background-color: @theme-secondary;
+    color: @theme-primary;
+}
+
+.bg-dark {
+    background-color: @theme-dark;
+    color: white;
+    a {
+        &:hover, &:focus {
+            color: lighten(@theme-secondary, 95%);
+        }
+    }
+}
+
+.bg-gray {
+    background-color: @theme-grey;
+    color: @theme-dark;
+}
+
+.color {
+    &-tinder {
+        color: @theme-tinder;
+    }
+}
+
+.text-faded-primary {
+    color: fade(@theme-primary, 70%);
+}
+
+.text-faded-secondary {
+    color: fade(@theme-secondary, 70%);
+}
+
+section {
+    padding: 100px 0;
+}
+
+aside {
+    padding: 50px 0;
+}
+
+.no-padding {
+    padding: 0;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+/*---------------------------*/
+/***** Navigation Styles *****/
+/*---------------------------*/
+.navbar-default {
+    background-color: white;
+    border-color: fade(@theme-dark, 5%);
+    .sans-serif-font;
+    .transition-all;
+    .navbar-header .navbar-brand-logo img {
+        height: 51px;
+        position: absolute;
+        left: 0px;
+    }
+    .nav {
+        > li {
+            > a,
+            > a:focus {
+                text-transform: uppercase;
+                font-weight: 600;
+                font-size: 13px;
+                color: @theme-dark;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+            &.active {
+                > a,
+                > a:focus {
+                    color: fade(white, 70%);
+                    background-color: transparent;
+                    text-decoration: underline;
+                    &:hover {
+                        background-color: transparent;
+                    }
+                }
+            }
+            > a.color-tinder,
+            > a.color-tinder:focus {
+                color: @theme-tinder;
+            }
+        }
+    }
+    @media (min-width: @grid-float-breakpoint) {
+        background-color: transparent;
+        border-color: fade(white, 30%);
+        .navbar-header .navbar-brand-logo img {
+            height: 59px;
+            position: absolute;
+            left: -15px;
+        }
+        .nav > li > a,
+        .nav > li > a:focus {
+            color: fade(white, 70%);
+            &:hover {
+                color: white;
+            }
+        }
+        &.affix {
+            background-color: white;
+            border-color: fade(@theme-dark, 5%);
+            .nav > li > a,
+            .nav > li > a:focus {
+                color: @theme-dark;
+                &:hover {
+                    color: lighten(@theme-secondary, 30%);
+                }
+            }
+        }
+    }
+}
+
+/*-----------------------*/
+/***** Tinder Styles *****/
+/*-----------------------*/
+header#tinder {
+    min-height: 100%
+}
+
+.tinder {
+    padding-top: 60px;
+
+    form {
+        text-align: left;
+        // margin-top: 36px;
+
+        fieldset {
+            padding-top: 26px;
+            padding-right: 14px;
+            padding-left: 14px;
+            padding-bottom: 40px;
+            border-radius: 10px;
+            border-width: 1px;
+            border-color: rgba(68,69,73,0.2);
+            border-style: solid;
+            margin-bottom: 15px;
+        }
+
+        button {
+            border: 0;
+            margin: 0 auto;
+            // padding: 19px 94px;
+            // letter-spacing: 4.4px;
+            border-radius: 65px;
+            margin-top: 40px;
+            display: block;
+        }
+    }
+
+    @media (min-width: 768px) {
+        padding-top: 10%;
+
+        form {
+            fieldset {
+                padding-top: 36px;
+                padding-right: 34px;
+                padding-left: 34px;
+                margin-bottom: 20%;
+            }
+
+            button {
+                margin-top: 20px;
+                padding: 13px 66px;
+            }
+        }
+    }
+
+    &.tinder-questions {
+        form {
+            p {
+                margin: 0;
+            }
+
+            input,
+            label {
+                font-size: 1.5rem;
+            }
+
+            hr {
+                border-color: lightgray;
+                border-width: 1px;
+                max-width: 100%;
+            }
+        }
+    }
+
+    &.tinder-contact {
+        label {
+            font-size: 12px;
+            margin-bottom: 16px;
+        }
+
+        input,
+        textarea {
+            border-radius: 5px;
+            width: 100%;
+            background-color: #eeeeee;
+            border: 0;
+            border-top: 1px solid #dddddd;
+            padding: 7px;
+            height: 60px;
+            margin-bottom: 30px;
+            font-size: 1.7rem;
+        }
+
+        @media (min-width: 768px) {
+            input,
+            textarea {
+                height: 45px;
+                margin-bottom: 19px;
+            }
+        }
+    }
+}
+
+/*--------------------------------*/
+/***** Homepage Header Styles *****/
+/*--------------------------------*/
+.slick-wrapper {
+    min-height: 100%;
+}
+
+header {
+    position: relative;
+    width: 100%;
+    min-height: auto;
+    .background-cover;
+    background-position: center;
+    // background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../img/f22_raptor_jean.min.jpg');
+    text-align: center;
+    color: white;
+    &.solution-2-execute-1 {
+        background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../img/road1-jean.min.jpg');
+    }
+    &.solution-2-execute-2 {
+        background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../img/road2-jean.min.jpg');
+    }
+    &.solution-2-execute-3 {
+        background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../img/road1-jean.min.jpg');
+    }
+    &.solution-2-execute-4 {
+        background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../img/road2-jean.min.jpg');
+    }
+    &.solution-2-execute-5 {
+        background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../img/railroad1.min.jpg');
+    }
+    .header-content {
+        position: relative;
+        text-align: center;
+        padding: 100px 15px 100px;
+        width: 100%;
+
+        .header-logo {
+            height: 50px;
+            margin-bottom: 20px;
+        }
+
+        .header-content-inner {
+            h1 {
+                font-weight: 700;
+                text-transform: uppercase;
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+            h2 {
+                margin-bottom: 30px;
+            }
+            hr {
+                margin: 30px auto;
+            }
+            p {
+                font-weight: 400;
+                color: fade(white, 90%);
+                font-size: 16px;
+                margin-bottom: 40px;
+            }
+        }
+    }
+    @media (min-width: 768px) {
+        min-height: 100%;
+        .header-content {
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+            padding: 0 50px;
+            .header-content-inner {
+                max-width: 1000px;
+                margin-left: auto;
+                margin-right: auto;
+                p {
+                    font-size: 18px;
+                    max-width: 80%;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            }
+        }
+    }
+}
+
+/*-------------------------*/
+/***** Sections Styles *****/
+/*-------------------------*/
+footer p {
+    margin: 0 0 10px 0;
+    padding: 0;
+    font-size: 11px;
+}
+
+.section-heading {
+    margin-top: 0;
+}
+
+.case-box, .partner-box {
+    max-width: 400px;
+    margin: 50px auto 0;
+    @media (min-width: 992px) {
+        margin: 20px auto 0;
+    }
+    p {
+        margin-bottom: 0;
+    }
+    img {
+        height: 99px;
+        // -webkit-filter: grayscale(100%);
+        // filter: grayscale(100%);
+        &.bubblepost {
+            height: 60px;
+        }
+    }
+}
+
+#mission {
+    .mission-graph {
+        img {
+            width: 100%;
+        }
+    }
+    figure {
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+    .col-xs-5ths img {
+        width: 60%;
+        margin: 0 auto;
+    }
+    .row {
+        position: relative;
+    }
+    .custom-position {
+        position: absolute;
+        bottom: 3%;
+    }
+}
+
+#services {
+    padding-bottom: 100px;
+
+    .section-header-wrapper {
+        padding-top: 100px;
+        padding-bottom: 10px;
+    }
+
+    .service-box {
+        height: 175px;
+        text-align: center;
+        letter-spacing: 1px;
+        height: 15em;
+        color: @theme-primary;
+        border: 2px solid @theme-dark;
+
+        &::after {
+            content: '';
+            display: inline-block;
+            width: 100%;
+        }
+        .title {
+            display: inline-block;
+            height: 100%;
+            &::before {
+                content: '';
+                display: inline-block;
+                vertical-align: middle;
+                height: 100%;
+            }
+        }
+        h3 {
+            margin: 0;
+            position: relative;
+            display: inline-block;
+            span:before {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                bottom: -5px;
+                left: 0;
+                background-color: #FFF;
+                visibility: hidden;
+                -webkit-transform: scaleX(0);
+                transform: scaleX(0);
+                -webkit-transition: all 0.3s ease-in-out 0s;
+                transition: all 0.3s ease-in-out 0s;
+            }
+        }
+
+        &:hover h3 span:before {
+            visibility: visible;
+            -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+        }
+    }
+
+    &.bg-dark {
+        .service-box {
+            border-color: @theme-primary;
+        }
+    }
+    .no-border {
+        &-top { border-top: none; }
+        &-right { border-right: none; }
+        &-bottom { border-bottom: none; }
+        &-left { border-left: none; }
+    }
+}
+
+.portfolio-box {
+    position: relative;
+    display: block;
+    max-width: 650px;
+    margin: 0 auto;
+    .portfolio-box-caption {
+        color: white;
+        opacity: 0;
+        display: block;
+        background: fade(@theme-primary, 90%);
+        position: absolute;
+        bottom: 0;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        .transition-all;
+        .portfolio-box-caption-content {
+            width: 100%;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            .project-category,
+            .project-name {
+                .sans-serif-font;
+                padding: 0 15px;
+            }
+            .project-category {
+                text-transform: uppercase;
+                font-weight: 600;
+                font-size: 14px;
+            }
+            .project-name {
+                font-size: 18px;
+            }
+        }
+    }
+    &:hover {
+        .portfolio-box-caption {
+            opacity: 1;
+        }
+    }
+    @media (min-width: 768px) {
+        .portfolio-box-caption {
+            .portfolio-box-caption-content {
+                .project-category {
+                    font-size: 16px;
+                }
+                .project-name {
+                    font-size: 22px;
+                }
+            }
+        }
+    }
+}
+
+.call-to-action {
+    h2 {
+        margin: 0 auto 20px;
+    }
+}
+
+#cases {
+    h3 {
+        margin-top: 20px;
+    }
+    p {
+        margin-top: 25px;
+    }
+}
+
+.meter-subtext {
+    font-size: (@font-size-base * @line-height-base);
+}
+
+/*-----------------------------*/
+/***** Bootstrap Overrides *****/
+/*-----------------------------*/
+.text-primary {
+    color: @theme-primary;
+}
+
+.no-gutter > [class*='col-'] {
+    padding-right:0;
+    padding-left:0;
+}
+
+
+/*-----------------------*/
+/***** Button Styles *****/
+/*-----------------------*/
+.btn {
+    .sans-serif-font;
+    border: 1px solid;
+    border-radius: 300px;
+    font-weight: 400;
+    text-transform: uppercase;
+
+    &-default {
+        // color, background, border
+        .button-variant(@theme-dark; white; white);
+    }
+    &-primary {
+        .button-variant(black; @theme-primary; @theme-primary);
+        &:hover {
+            background: @theme-dark;
+            color: @theme-primary;
+        }
+    }
+    &-secondary {
+        .button-variant(white; @theme-dark; @theme-secondary);
+        &:hover {
+            background: @theme-primary;
+            color: @theme-secondary;
+        }
+    }
+    &-inversed {
+        .button-variant(white; @theme-transparent; white);
+        &:hover {
+            background: @theme-dark;
+            color: @theme-primary;
+        }
+    }
+    &-tinder {
+        .button-variant(white; @theme-tinder; @theme-primary);
+        &:hover {
+            background: lighten(@theme-tinder, 3%);
+        }
+    }
+    &-secondary-border {
+        border: 1px solid @theme-secondary;
+        &:hover {
+            border: 1px solid @theme-secondary;
+        }
+    }
+    &-xl {
+        padding: 15px 30px;
+    }
+}
+
+
+/*----------------------*/
+/***** Extra Styles *****/
+/*----------------------*/
+// -- Highlight Color Customization
+::-moz-selection {
+    color: white;
+    text-shadow: none;
+    background: @theme-dark;
+}
+
+::selection {
+    color: white;
+    text-shadow: none;
+    background: @theme-dark;
+}
+
+img::selection {
+    color: white;
+    background: transparent;
+}
+
+img::-moz-selection {
+    color: white;
+    background: transparent;
+}
+
+body {
+    webkit-tap-highlight-color: @theme-dark;
+}
+
+.counter {
+    p {
+        font-size: 26px;
+    }
+}

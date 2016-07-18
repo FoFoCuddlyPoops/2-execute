@@ -19,6 +19,10 @@
         offset: 300
     })
 
+    $(document).on('click',function(){
+        $('.collapse').collapse('hide');
+    })
+
     // Closes the Responsive Menu on Menu Item Click
     // $('.navbar-collapse > ul > li > a').not('.dropdown-toggle').on('click', function() {
     //     $('.navbar-toggle:visible').click();

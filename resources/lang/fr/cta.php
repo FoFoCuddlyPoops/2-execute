@@ -11,7 +11,10 @@ return [
     |
     */
 
-    'contact-us' => 'Contacteer ons FR',
-    'quick-scan' => 'Quick scan FR',
+    'contact-us' => 'Contactez nous',
+    'quick-scan' => 'Scan rapide',
+    'send-us-a-message' => 'Envoie-nous un message',
+    'get-to-know-us' => 'Apprenez à mieux nous connaître',
+
 
 ];

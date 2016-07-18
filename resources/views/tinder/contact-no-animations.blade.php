@@ -5,14 +5,14 @@
     <div class="container tinder tinder-contact">
         <div class="row">
             <div class="col-xs-12">
-                <h2 class="wow fadeInDown visibility-hidden" data-wow-delay="0.3s">{{ trans('content.tinder.contact.title') }}</h2>
-                <hr class="wow fadeInUp visibility-hidden" data-wow-delay="0.5s"></div>
+                <h2 class="" data-wow-delay="0.3s">{{ trans('content.tinder.contact.title') }}</h2>
+                <hr class="" data-wow-delay="0.5s"></div>
 
-            <div class="wow fadeInUp visibility-hidden" data-wow-delay="0.5s">
+            <div class="" data-wow-delay="0.5s">
                 <p>{{ trans('content.tinder.contact.subtitle') }}</p>
             </div>
 
-            <div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6 wow fadeInUp visibility-hidden" data-wow-delay="1.5s">
+            <div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6 " data-wow-delay="1.5s">
                 <form class="" action="{{ route('tinder.contact') }}" method="post">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -27,12 +27,6 @@
                     @endif
 
                     <fieldset class="bg-primary">
-                        @if (!empty($tinder_contact))
-                            <p>
-                                <a href="{{ route('tinder.questions') }}">{{ trans('content.tinder.contact.skip') }}</a>
-                            </p>
-                        @endif
-
                         <label class="@if ($errors->get('name')) has-error @endif">{{ trans('content.tinder.contact.name') }} <sup>*</sup></label>
                         <input type="text" name="name" value="{{ old('name') }}" class="@if ($errors->get('name')) has-error @endif">
 

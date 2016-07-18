@@ -91,10 +91,8 @@ return [
     |
     */
 
-    'custom'               => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
-        ],
+    'custom' => [
+
     ],
 
     /*
@@ -108,8 +106,12 @@ return [
     |
     */
 
-    'attributes'           => [
-        //
+    'attributes' => [
+        'name' => 'Uw naam',
+        'email' => 'Een geldig e-mailadres',
+        'telephone_number' => 'Telefoonnummer',
+        'company' => 'Bedrijf',
+        'function' => 'Functie',
     ],
 
 ];

@@ -1,7 +1,12 @@
 @import "bootstrap.less";
 @import "media-queries.less";
+@import "email.less";
 
-// Global Components
+.email p {color: red;}
+
+/*---------------------------*/
+/***** Global Styles *****/
+/*---------------------------*/
 html,
 body {
     height: 100%;
@@ -119,12 +124,52 @@ aside {
     text-decoration: underline;
 }
 
+label.has-error {
+    color: #FEBABB;
+}
+
+input.has-error {
+    border-color: #843534;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #ce8483;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #ce8483;
+}
+
+.chevron {
+    display: inline-block;
+    width: @chevron-size;
+    height: @chevron-size;
+    margin-left: -@chevron-half-size;
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transition-property: bottom;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+}
+.chevron:before {
+    display: block;
+    content: "";
+    width: @chevron-size;
+    height: @chevron-size;
+    border-style: solid;
+    position: absolute;
+    border-width: 1px;
+    border-color: @theme-primary;
+    transform: rotate(45deg);
+    border-left: none;
+    border-top: none;
+}
+.chevron:hover {
+    cursor: pointer;
+    bottom: 35px;
+}
+
 /*---------------------------*/
 /***** Navigation Styles *****/
 /*---------------------------*/
 .navbar-default {
     background-color: white;
-    border-color: fade(@theme-dark, 5%);
+    border-color: rgba(153,153,153,.4);
     .sans-serif-font;
     .transition-all;
     .navbar-header .navbar-brand-logo img {
@@ -147,7 +192,7 @@ aside {
             &.active {
                 > a,
                 > a:focus {
-                    color: fade(white, 70%);
+                    color: fade(black, 70%);
                     background-color: transparent;
                     text-decoration: underline;
                     &:hover {
@@ -163,7 +208,7 @@ aside {
     }
     @media (min-width: @grid-float-breakpoint) {
         background-color: transparent;
-        border-color: fade(white, 30%);
+        border-color: rgba(153,153,153,.4);
         .navbar-header .navbar-brand-logo img {
             height: 59px;
             position: absolute;
@@ -213,7 +258,7 @@ header#tinder {
             border-width: 1px;
             border-color: rgba(68,69,73,0.2);
             border-style: solid;
-            margin-bottom: 15px;
+            margin-bottom: 20%;
         }
 
         button {
@@ -245,8 +290,62 @@ header#tinder {
         }
     }
 
+    &.tinder-confirm {
+        .avatar {
+            display: inline-block;
+            height: 130px;
+            width: 130px;
+            border-radius: 50%;
+            background: black;
+            text-align: center;
+            border: 2px solid white;
+            margin: 0 5px;
+            font-size: 12px;
+            white-space: nowrap;
+            overflow: hidden;
+
+            p {
+                margin: 50px 0;
+            }
+        }
+
+        .actions {
+            margin-top: 40px;
+
+            a {
+                max-width: 300px;
+                text-align: center;
+                margin: 10px auto;
+                display: block;
+                // border-radius: 0;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .avatar {
+                height: 200px;
+                width: 200px;
+                line-height: 200px;
+                margin: 0 10px;
+                font-size: 16px;
+                background-image: url(../img/tinder-confirm-company.png);
+                background-repeat: no-repeat;
+                background-position: bottom center;
+                background-size: auto 160px;
+
+                p {
+                    margin: 70px 0;
+                }
+            }
+        }
+    }
+
     &.tinder-questions {
         form {
+            [name='answer6'] {
+                border: 1px solid lightgray;
+            }
+
             p {
                 margin: 0;
             }
@@ -270,8 +369,7 @@ header#tinder {
             margin-bottom: 16px;
         }
 
-        input,
-        textarea {
+        input {
             border-radius: 5px;
             width: 100%;
             background-color: #eeeeee;
@@ -283,9 +381,13 @@ header#tinder {
             font-size: 1.7rem;
         }
 
+        .required-text {
+            font-size: 10px;
+            color: gray;
+        }
+
         @media (min-width: 768px) {
-            input,
-            textarea {
+            input {
                 height: 45px;
                 margin-bottom: 19px;
             }
@@ -303,7 +405,7 @@ header#tinder {
 header {
     position: relative;
     width: 100%;
-    min-height: auto;
+    min-height: 100%;
     .background-cover;
     background-position: center;
     // background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../img/f22_raptor_jean.min.jpg');
@@ -393,7 +495,7 @@ footer p {
     margin-top: 0;
 }
 
-.case-box, .partner-box {
+.partner-box {
     max-width: 400px;
     margin: 50px auto 0;
     @media (min-width: 992px) {
@@ -572,9 +674,37 @@ footer p {
     h3 {
         margin-top: 20px;
     }
+
     p {
         margin-top: 25px;
     }
+
+    .case-box {
+        max-width: 400px;
+        margin: 50px auto 0;
+        @media (min-width: 992px) {
+            margin: 20px auto 0;
+        }
+        a {
+            display: block;
+            height: 99px;
+        }
+        p {
+            margin-bottom: 0;
+        }
+        img {
+            width: 100%;
+            max-width: 260px;
+            &.tomorrowland {
+                width: 80%;
+                max-width: 200px;
+            }
+        }
+    }
+
+    // #img-bozarc {
+    //     width: 80%;
+    // }
 }
 
 .meter-subtext {

@@ -40,6 +40,8 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <!-- Google Analytics -->
+    {!! Analytics::render() !!}
 </head>
 
 <body id="page-top">
@@ -54,7 +56,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand-logo page-scroll" href="#page-top">
+                <a class="navbar-brand-logo page-scroll" href="{{ route('home') }}">
                     <img src="{{ asset('img/2-execute-logo.png') }}" class="" alt="2-execute logo supply chain management"></a>
             </div>
 
@@ -62,25 +64,25 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" aria-expanded="true">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" href="{{ route('home') }}#about">About</a>
+                        <a class="page-scroll" href="@if (!Request::is('/')){{ route('home') }}@endif#about">{{ trans('content.homepage.about.title') }}</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="{{ route('home') }}#mission">Mission</a>
+                        <a class="page-scroll" href="@if (!Request::is('/')){{ route('home') }}@endif#mission">{{ trans('content.homepage.mission.title') }}</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="{{ route('home') }}#services">Services</a>
+                        <a class="page-scroll" href="@if (!Request::is('/')){{ route('home') }}@endif#services">{{ trans('content.homepage.services.title') }}</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="{{ route('home') }}#cases">Cases</a>
+                        <a class="page-scroll" href="@if (!Request::is('/')){{ route('home') }}@endif#cases">{{ trans('content.homepage.cases.title') }}</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="{{ route('home') }}#partners">Partners</a>
+                        <a class="page-scroll" href="@if (!Request::is('/')){{ route('home') }}@endif#partners">{{ trans('content.homepage.partners.title') }}</a>
                     </li>
                     <li>
                         <a class="page-scroll color-tinder" href="{{ route('tinder.contact') }}">Supply Chain Tinder</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="{{ route('home') }}#contact">Contact</a>
+                        <a class="page-scroll" href="@if (!Request::is('/')){{ route('home') }}@endif#contact">Contact</a>
                     </li>
                     <li class="dropdown">
                         <a  href="#"
@@ -108,15 +110,17 @@
             </div>
         </div>
     </nav>
+
     @yield('content')
+
     <section class="bg-dark" id="contact">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading wow fadeInDown">Let's Get In Touch!</h2>
+                    <h2 class="section-heading wow fadeInDown">{{ trans('content.homepage.contact.title') }}</h2>
                     <hr class="primary wow fadeInUp">
                     <p class="wow fadeInUp" data-wow-delay="0.5s">
-                        Ready to start your next project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!
+                        {{ trans('content.homepage.contact.text') }}
                     </p>
                 </div>
                 <div class="col-md-4 col-md-offset-2 text-center wow fadeInUp" data-wow-delay="1.0s"> <i class="fa fa-phone fa-3x"></i>
@@ -166,5 +170,4 @@
     <script src="{{ asset('js/creative.js') }}" type="text/javascript"></script>
 
 </body>
-
 </html>

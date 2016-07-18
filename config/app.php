@@ -156,6 +156,10 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * Custom Service Providers...
+         */
+        Ipunkt\LaravelAnalytics\AnalyticsServiceProvider::class,
     ],
 
     /*
@@ -202,6 +206,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
 
+        'Analytics' => Ipunkt\LaravelAnalytics\AnalyticsFacade::class,
     ],
 
 ];
